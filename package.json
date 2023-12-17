@@ -1,0 +1,17 @@
+{
+  "name": "simple-backend",
+  "version": "1.0.0",
+  "description": "Simple backend application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "javascript",
+    "react",
+    "backend"
+  ],
+  "author": "Imran Ahmed",
+  "license": "ISC"
+}
