@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { User } from "../models/user.model.js";
 import { ApiError } from "../utils/ApiError.js";
-import { ApiResponse } from "../utils/ApiResponse.js";
+import { ApiResponse } from "../utils/ApiRespose.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { uploadFileOnCloudinary } from "../utils/cloudinary.js";
 
@@ -362,6 +362,7 @@ const getWatchHistory = asyncHandler(async (req, resp) => {
           {
             $addFields: {
               owner: {
+                // extracts first element of an array of field owner from previous pipeline
                 $first: "$owner",
               },
             },
@@ -370,6 +371,15 @@ const getWatchHistory = asyncHandler(async (req, resp) => {
       },
     },
   ]);
+  return resp
+    .status(200)
+    .json(
+      new ApiResponse(
+        200,
+        user[0].watchHistory,
+        "watched history fetched successfully"
+      )
+    );
 });
 export {
   changeCurrentUserPassword,
