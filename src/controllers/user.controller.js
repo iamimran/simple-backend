@@ -385,6 +385,7 @@ export {
   changeCurrentUserPassword,
   getChannelProfile,
   getCurrentUser,
+  getWatchHistory,
   loginUser,
   logoutUser,
   refreshAccessToken,
